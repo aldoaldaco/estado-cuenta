@@ -1,6 +1,7 @@
 {
   "name": "estado-cuenta",
   "description": "Componente para visualizar el estado de una cuenta de banco",
+  "version": "0.0.1",
   "main": "estado-cuenta.html",
   "dependencies": {
     "polymer": "Polymer/polymer#2.2.0"
