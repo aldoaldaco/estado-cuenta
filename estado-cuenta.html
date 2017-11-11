@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="estado-cuenta">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `estado-cuenta`
+     * Componente para visualizar el estado de una cuenta de banco
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class EstadoCuenta extends Polymer.Element {
+      static get is() { return 'estado-cuenta'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'estado-cuenta'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(EstadoCuenta.is, EstadoCuenta);
+  </script>
+</dom-module>
