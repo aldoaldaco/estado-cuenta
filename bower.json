@@ -1,10 +1,11 @@
 {
   "name": "estado-cuenta",
   "description": "Componente para visualizar el estado de una cuenta de banco",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "estado-cuenta.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#2.2.0"
+    "polymer": "Polymer/polymer#2.2.0",
+    "paper-collapse-item": "Collaborne/paper-collapse-item#2.0.3"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
