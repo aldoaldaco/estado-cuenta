@@ -1,5 +1,8 @@
 <link rel="import" href="../polymer/polymer-element.html">
 
+<link rel="import" href="../paper-collapse-item/paper-collapse-group.html">
+<link rel="import" href="../paper-collapse-item/paper-collapse-item.html">
+
 <dom-module id="estado-cuenta">
   <template>
     <style>
@@ -7,7 +10,38 @@
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <h2>[[titulo]]</h2>
+    <div class="estado-cuenta">
+        <paper-collapse-group>
+            <template is="dom-repeat" items="[[cuentas]]" as="cuenta">
+                <paper-collapse-item icon="icons:info" header="[[cuenta.titulo]]">
+                    <div class="cuenta">
+                        <h4>[[cuenta.cuentahabiente]]</h4>
+                        <div class="cargos">
+                            <h5>Cargos</h5>
+                            <ul>
+                                <template is="dom-repeat" items="[[cuenta.cargos]]" as="cargo">
+                                    <li>
+                                        <div>[[cargo.concepto]] [[cargo.fecha]]  [[cargo.monto]]</div>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                        <div class="abonos">
+                            <h5>Abonos</h5>
+                            <ul>
+                                <template is="dom-repeat" items="[[cuenta.abonos]]" as="abono">
+                                    <li>
+                                        <div>[[abono.concepto]] [[abono.fecha]]  [[abono.monto]]</div>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </paper-collapse-item>
+            </template>
+        </paper-collapse-group>
+    </div>
   </template>
 
   <script>
@@ -23,10 +57,51 @@
       static get is() { return 'estado-cuenta'; }
       static get properties() {
         return {
-          prop1: {
-            type: String,
-            value: 'estado-cuenta'
-          }
+            titulo: {
+                type: String,
+                value: 'estado-cuenta'
+            },
+            cuentas: {
+                type: Array,
+                value: [
+                    {
+                        tipo: 'Nómina',
+                        numerocuenta: '0001',
+                        cuentahabiente: 'Aldo Aldaco Contreras',
+                        titulo: 'Nómina 0001',
+                        cargos: [{
+                            fecha: '01/10/2017',
+                            monto: 10000,
+                            codigo: '01ABB12',
+                            concepto: 'Pago Doctor'
+                        }],
+                        abonos: [{
+                            fecha: '01/10/2017',
+                            monto: 100000,
+                            codigo: '00109AB',
+                            concepto: 'Pago nómina'
+                        }]
+                    },
+                    {
+                        tipo: 'Crédito',
+                        numerocuenta: '0002',
+                        cuentahabiente: 'Aldo Aldaco Contreras',
+                        titulo: 'Crédito 0001',
+                        cargos: [{
+                            fecha: '01/10/2017',
+                            monto: 10000,
+                            codigo: '01AB12',
+                            concepto: 'Marihuana medicinal'
+                        }],
+                        abonos: [{
+                            fecha: '01/10/2017',
+                            monto: 100000,
+                            codigo: '00109A',
+                            concepto: 'Pago Droga'
+                        }]
+                    }
+                ]
+            }
         };
       }
     }
